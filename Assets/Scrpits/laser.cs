@@ -19,14 +19,20 @@ public class laser : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //translate laser up
         transform.Translate(Vector3.up * _speed * Time.deltaTime);
 
-        //if laser position is greater than 7 on the y
-        //destroy the object
         
         if(transform.position.y > 7f)
         {
+            
+            if (transform.parent != null)
+            {
+
+                Destroy(transform.parent.gameObject);
+
+            }
+            //check if this object has a parent.
+            //destroy parent too!
             Destroy(this.gameObject);
         }
     }

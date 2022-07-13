@@ -13,6 +13,9 @@ public class Player : MonoBehaviour
     
     [SerializeField]
     private GameObject _laserPrefab;
+
+    [SerializeField]
+    private GameObject _tripleShotPrefab;
     
     [SerializeField]
     private Vector3 laserOffset = new Vector3(0, 0.99f, 0);
@@ -24,12 +27,19 @@ public class Player : MonoBehaviour
     private float _canFire = -1f;
     
     [SerializeField]
-    private float _nextFire = 0.0f;
+    private float _nextFire = 0.5f;
     
     [SerializeField]
     private int _lives = 3;
 
     private SpawnManager _spawnManager;
+
+    //variable IstripleShot Active
+    [SerializeField]
+    private bool _isTripleShotActive = false;
+
+    
+
 
         // Start is called before the first frame update
     void Start()
@@ -106,7 +116,22 @@ public class Player : MonoBehaviour
     void FireLaser()
     {
         _canFire = Time.time + _fireRate;
-        Instantiate(_laserPrefab, transform.position + laserOffset, Quaternion.identity);
+        if (_isTripleShotActive == true)
+        {
+
+            Instantiate(_tripleShotPrefab, transform.position, Quaternion.identity);
+            
+            
+        }
+        else
+        {
+
+            Instantiate(_laserPrefab, transform.position + laserOffset, Quaternion.identity);
+
+        }
+            
+            
+            
     }
 
     public void Damage()
@@ -125,5 +150,23 @@ public class Player : MonoBehaviour
         
         }
     
+    }
+
+    public void TripleShotActive()
+    {
+        _isTripleShotActive = true;
+        StartCoroutine(TripleShotPowerDownRoutine());
+        //tripleShotActive becomes true
+        //start the power down coroutine for triple shot
+
+
+    }
+
+    IEnumerator TripleShotPowerDownRoutine()
+    {
+
+        yield return new WaitForSeconds(7.0f);
+        _isTripleShotActive = false;
+
     }
 }
