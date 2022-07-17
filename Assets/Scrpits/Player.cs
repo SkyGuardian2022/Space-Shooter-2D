@@ -16,6 +16,12 @@ public class Player : MonoBehaviour
 
     [SerializeField]
     private GameObject _tripleShotPrefab;
+
+    [SerializeField]
+    private GameObject _SpeedUpPrefab;
+
+    [SerializeField]
+    private GameObject _ShieldPrefab;
     
     [SerializeField]
     private Vector3 laserOffset = new Vector3(0, 0.99f, 0);
@@ -37,6 +43,12 @@ public class Player : MonoBehaviour
     //variable IstripleShot Active
     [SerializeField]
     private bool _isTripleShotActive = false;
+
+    [SerializeField]
+    private bool _isSpeedActive = false;
+
+    [SerializeField]
+    private bool _isShieldActive = false;
 
     
 
@@ -156,10 +168,7 @@ public class Player : MonoBehaviour
     {
         _isTripleShotActive = true;
         StartCoroutine(TripleShotPowerDownRoutine());
-        //tripleShotActive becomes true
-        //start the power down coroutine for triple shot
-
-
+        
     }
 
     IEnumerator TripleShotPowerDownRoutine()
@@ -169,4 +178,35 @@ public class Player : MonoBehaviour
         _isTripleShotActive = false;
 
     }
+
+    public void SpeedActive()
+    {
+        _isSpeedActive = true;
+        StartCoroutine(SpeedActiveRoutine());
+
+    }
+
+    IEnumerator SpeedActiveRoutine()
+    {
+
+        yield return new WaitForSeconds(7.0f);
+        _isSpeedActive = true;
+
+    }
+
+    public void ShieldActive()
+    {
+
+        _isShieldActive = true;
+        StartCoroutine(ShieldActiveRoutine());
+
+    }
+
+    IEnumerator ShieldActiveRoutine()
+    {
+
+        yield return new WaitForSeconds(7.0f);
+
+    }
+
 }
