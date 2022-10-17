@@ -55,12 +55,10 @@ public class Powerup : MonoBehaviour
                         player.TripleShotActive();
                         break;
                     case 1:
-                        player.SpeedActive();
-                        Debug.Log("Collected Speed Boost");
+                        player.SpeedBoostActive();
                         break;
                     case 2:
                         player.ShieldActive();
-                        Debug.Log("Collected Shield Boost");
                         break;
                     default:
                         Debug.Log("Default Value");

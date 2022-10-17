@@ -8,6 +8,8 @@ TagManager:
   - Enemy
   - TripleShot
   - Speedup
+  - Shields
+  - ShieldVisualizer
   layers:
   - Default
   - TransparentFX
