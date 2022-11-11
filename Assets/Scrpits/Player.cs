@@ -29,6 +29,9 @@ public class Player : MonoBehaviour
     private GameObject _ShieldPrefab;
     [SerializeField]
     private GameObject _ShieldVisualizer;
+    [SerializeField]
+    private GameObject _rightEngine, _leftEngine;
+    
 
     [SerializeField]
     private Vector3 laserOffset = new Vector3(0, 0.99f, 0);
@@ -60,6 +63,7 @@ public class Player : MonoBehaviour
     private int _score;
 
     private UIManager _uiManager;
+    
 
     
 
@@ -167,11 +171,19 @@ public class Player : MonoBehaviour
         
         _lives --;
 
-        //if lives is 2
-        //enable right engine
-        //else if lives is 1
-        //enable left engine
+        if (_lives == 2)
+        {
 
+            _leftEngine.SetActive(true);
+
+        }
+        else if (_lives == 1)
+        {
+
+            _rightEngine.SetActive(true);
+
+        }
+        
         _uiManager.UpdateLives(_lives);
 
         if (_lives <= 0)
@@ -202,6 +214,7 @@ public class Player : MonoBehaviour
     public void SpeedBoostActive()
     {
         _isSpeedBoostActive = true;
+        _SpeedUpVizualizer.SetActive(true);
         _speed *= _speedMultiplier;
         StartCoroutine(SpeedBoostPowerDownRoutine());
     }
@@ -211,6 +224,7 @@ public class Player : MonoBehaviour
 
         yield return new WaitForSeconds(Random.Range(5.0f, 8.0f));
         _isSpeedBoostActive = false;
+        _SpeedUpVizualizer.SetActive(false);
         _speed /= _speedMultiplier;
 
     }

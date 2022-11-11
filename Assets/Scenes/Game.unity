@@ -206,13 +206,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 467acfdf619c4134e9e48b6a58544322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 5
+  _speed: 3.29
   _laserPrefab: {fileID: 7722988876290062541, guid: 85c1f6c210ed45d45adb6137b704e660, type: 3}
   _tripleShotPrefab: {fileID: 3803344706383617964, guid: 9d2ce6f49e8b1a7499a8430c03d783c0, type: 3}
   _SpeedUpPrefab: {fileID: 5246356411629095531, guid: a73e86eee74f58b4fa3b8919315a2cc4, type: 3}
-  _SpeedUpVizualizer: {fileID: 0}
+  _SpeedUpVizualizer: {fileID: 1091695224}
   _ShieldPrefab: {fileID: 7954295248923658142, guid: 46a459023bdc14241a721f3cbe464e4f, type: 3}
   _ShieldVisualizer: {fileID: 632437558}
+  _rightEngine: {fileID: 1428426031}
+  _leftEngine: {fileID: 2120577690}
   laserOffset: {x: 0, y: 0.99, z: 0}
   _fireRate: 0.25
   _canFire: -1
@@ -1060,7 +1062,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1428426032
 Transform:
   m_ObjectHideFlags: 0
@@ -1667,7 +1669,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2120577691
 Transform:
   m_ObjectHideFlags: 0
