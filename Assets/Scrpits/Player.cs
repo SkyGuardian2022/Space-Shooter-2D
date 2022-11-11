@@ -24,6 +24,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     private GameObject _SpeedUpPrefab;
     [SerializeField]
+    private GameObject _SpeedUpVizualizer;
+    [SerializeField]
     private GameObject _ShieldPrefab;
     [SerializeField]
     private GameObject _ShieldVisualizer;
@@ -164,6 +166,11 @@ public class Player : MonoBehaviour
         }
         
         _lives --;
+
+        //if lives is 2
+        //enable right engine
+        //else if lives is 1
+        //enable left engine
 
         _uiManager.UpdateLives(_lives);
 

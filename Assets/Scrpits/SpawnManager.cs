@@ -18,11 +18,14 @@ public class SpawnManager : MonoBehaviour
     void Start()
     {
 
-        StartCoroutine(SpawnEnemyRoutine());
-
-        StartCoroutine(SpawnPowerupRoutine());
-        
     }
+
+    public void StartSpawning()
+    {
+    StartCoroutine(SpawnEnemyRoutine());
+    StartCoroutine(SpawnPowerupRoutine());
+    }
+
 
     // Update is called once per frame
     void Update()
@@ -33,6 +36,7 @@ public class SpawnManager : MonoBehaviour
 
     IEnumerator SpawnEnemyRoutine()
     {
+        yield return new WaitForSeconds(3.5f);
         while (_stopSpawning == false)
         {
             
@@ -48,7 +52,7 @@ public class SpawnManager : MonoBehaviour
 
     IEnumerator SpawnPowerupRoutine()
     {
-
+        yield return new WaitForSeconds(3.5f);
         while (_stopSpawning == false)
         {
             Vector3 postToSpawn = new Vector3(Random.Range(-8f, 8f), 7, 0);

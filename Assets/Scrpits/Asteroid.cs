@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class Asteroid : MonoBehaviour
 {
-    // Start is called before the first frame update
     [SerializeField]
     private float _rotateSpeed = 20.0f;
 
     [SerializeField]
     private GameObject _explosionPrefab;
 
-    void Start()
+    private SpawnManager _spawnManager;
+
+    public void Start()
     {
-        
-        
+
+        _spawnManager = GameObject.Find("Spawn_Manager").GetComponent<SpawnManager>();
 
 
     }
@@ -34,6 +35,7 @@ public class Asteroid : MonoBehaviour
         {
             Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
             Destroy(other.gameObject);
+            _spawnManager.StartSpawning();
             Destroy(this.gameObject, 0.25f);
         }
     }
